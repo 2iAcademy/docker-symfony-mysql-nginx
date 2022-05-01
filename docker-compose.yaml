@@ -1,0 +1,57 @@
+version: '3.9'
+
+volumes:
+    generated_files: ~
+    data_storage: ~
+
+services:
+    postgres:
+        image: postgres:14.2-alpine
+        container_name: app_postgres
+        volumes:
+            - data_storage:/var/lib/postgresql
+        environment:
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_DB: ${POSTGRES_DB}
+        ports:
+            - "5432:5432"
+
+    php:
+        build: .docker/php
+        image: php:8.1.2-fpm
+        container_name: app_php
+        volumes:
+            - ${SYMFONY_APP}:${WORKDIR}
+            - generated_files:${WORKDIR}/var/cache
+            - ${SYMFONY_APP}/vendor:${WORKDIR}/vendor:delegated
+        working_dir: ${WORKDIR}
+        depends_on:
+            - postgres
+
+    symfony:
+        container_name: app_sf
+        build: .docker/symfony-cli
+        working_dir: ${WORKDIR}
+        volumes:
+            - ${SYMFONY_APP}:${WORKDIR}
+        environment:
+            - NODEJS_VERSION=${NODEJS_VERSION}
+
+    nginx:
+        container_name: app_nginx
+        build: .docker/nginx
+        volumes:
+            - ${SYMFONY_APP}:${WORKDIR}
+            - ${NGINX_LOGS}:/var/log/nginx/
+        environment:
+            - WORKDIR=${WORKDIR}
+        ports:
+            - "80:80"
+            - "443:443"
+        depends_on:
+            - php
+        networks:
+            default:
+                aliases:
+                    - 'm-2i-tech.academy'
