@@ -9,7 +9,7 @@ A fully configured docker-compose environment for running a symfony app with mys
 * run the following command (**Replace your name and email** from the command). You can ommit the --webapp to have a bare symfony skeleton without all the dependencies usually used for a full web application
 
 ```
-docker run --rm -v $(pwd):$(pwd) -w $(pwd) -e "GIT_USERNAME=Your Name" -e "GIT_EMAIL=your@github.email" 2itech/php-symfony-cli symfony new app --webapp
+docker run --rm -v absolute_path_to_the_directory-docker-symfony-mysql-nginx:/var/www -w /var/www -e "GIT_USERNAME=Khalid Sookia" -e "GIT_EMAIL=khalid.sookia@iknsa.com" 2itech/php-symfony-cli symfony new app --webapp
 ```
 
 --------------------------------------------------------------
