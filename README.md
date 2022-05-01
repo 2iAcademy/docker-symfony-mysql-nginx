@@ -3,7 +3,7 @@ A fully configured docker-compose environment for running a symfony app with mys
 
 ### Setup
 
-* Fork the repository
+* Click on use this template on github. This will create a new repo from the template on your account.
 * Clone it
 * In a terminal (use git bash for windows), cd into the directory cloned
 * run the following command (**Replace your name and email** from the command). You can ommit the --webapp to have a bare symfony skeleton without all the dependencies usually used for a full web application
