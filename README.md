@@ -6,7 +6,8 @@ A fully configured docker-compose environment for running a symfony app with mys
 * Click on use this template on github. This will create a new repo from the template on your account.
 * Clone it
 * In a terminal (use git bash for windows), cd into the directory cloned
-* run the following command (**Replace your name and email** from the command). You can ommit the --webapp to have a bare symfony skeleton without all the dependencies usually used for a full web application
+* run the following command (**Replace the 'absolute_path_to_the_directory-docker-symfony-mysql-nginx', your name and email** from the command)
+. You can ommit the --webapp to have a bare symfony skeleton without all the dependencies usually used for a full web application
 
 ```
 docker run --rm -v absolute_path_to_the_directory-docker-symfony-mysql-nginx:/var/www -w /var/www -e "GIT_USERNAME=Khalid Sookia" -e "GIT_EMAIL=khalid.sookia@iknsa.com" 2itech/php-symfony-cli symfony new app --webapp
