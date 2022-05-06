@@ -29,6 +29,3 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
 
 EXPOSE 9000
-
-# RUN mkdir -p /var/www/app/var/log /var/www/app/var/cache
-# # RUN chmod -R 777 /var/www/app/var/log /var/www/app/var/cache

@@ -7,7 +7,7 @@ volumes:
 services:
     mysql:
         image: mysql:8.0.29-oracle
-        container_name: app_mysql
+        container_name: m2i_app_mysql
         volumes:
             - data_storage:/var/lib/mysql
         environment:
@@ -20,8 +20,7 @@ services:
 
     php:
         build: .docker/php
-        image: php:8.1.2-fpm
-        container_name: app_php
+        container_name: m2i_app_php
         volumes:
             - ${SYMFONY_APP}:${WORKDIR}
             - generated_files:${WORKDIR}/var/cache
@@ -31,7 +30,7 @@ services:
             - mysql
 
     symfony:
-        container_name: app_sf
+        container_name: m2i_app_sf
         build: .docker/symfony-cli
         working_dir: ${WORKDIR}
         volumes:
@@ -40,7 +39,7 @@ services:
             - NODEJS_VERSION=${NODEJS_VERSION}
 
     nginx:
-        container_name: app_nginx
+        container_name: m2i_app_nginx
         build: .docker/nginx
         volumes:
             - ${SYMFONY_APP}:${WORKDIR}
