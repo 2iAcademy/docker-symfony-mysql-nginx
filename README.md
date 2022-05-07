@@ -34,6 +34,10 @@ Add the following:
 ### Access it from your browser
 Go to [http://m-2i-tech.academy](http://m-2i-tech.academy)
 
+### PHPMyAdmin
+If you want to access phpmyadmin
+Go to [http://m-2i-tech.academy:8080](http://m-2i-tech.academy:8080)
+
 ### Possible error
 1. You may have an error where nginx is unable to write to cache and log directory.
 

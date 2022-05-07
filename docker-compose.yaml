@@ -55,3 +55,13 @@ services:
             default:
                 aliases:
                     - 'm-2i-tech.academy'
+
+    phpmyadmin:
+        container_name: m2i_app_pma
+        image: phpmyadmin:latest
+        environment:
+            - PMA_HOST=mysql
+            - PMA_USER=${MYSQL_USER}
+            - PMA_PASSWORD=${MYSQL_PASSWORD}
+        ports:
+            - "8080:80"
