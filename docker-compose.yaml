@@ -28,13 +28,6 @@ services:
         working_dir: ${WORKDIR}
         depends_on:
             - mysql
-
-    symfony:
-        container_name: m2i_app_sf
-        build: .docker/symfony-cli
-        working_dir: ${WORKDIR}
-        volumes:
-            - ${SYMFONY_APP}:${WORKDIR}
         environment:
             - NODEJS_VERSION=${NODEJS_VERSION}
 

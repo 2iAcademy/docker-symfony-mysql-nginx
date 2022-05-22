@@ -9,7 +9,7 @@ A fully configured docker-compose environment for running a symfony app with mys
 * run the following command (**Replace the 'absolute_path_to_the_directory-docker-symfony-mysql-nginx', your name and email** from the command).
 
 ```
-docker run --rm -v absolute_path_to_the_directory-docker-symfony-mysql-nginx:/var/www -w /var/www -e "GIT_USERNAME=Khalid Sookia" -e "GIT_EMAIL=khalid.sookia@iknsa.com" 2itech/php-symfony-cli symfony new app
+docker run --rm -v absolute_path_to_the_directory-docker-symfony-mysql-nginx:/var/www -w /var/www -e "GIT_USERNAME=My Name" -e "GIT_EMAIL=my@email.com" 2itech/php-symfony-cli symfony new app
 ```
 
 --------------------------------------------------------------
